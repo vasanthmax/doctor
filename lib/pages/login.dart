@@ -23,8 +23,7 @@ class LoginWidget extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(
-                            top: statusBarHeight, left: 20, right: 20),
+                        padding: EdgeInsets.only(top: statusBarHeight, left: 20, right: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -52,7 +51,7 @@ class LoginWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Text(
-                          'find the best doctors nearest to you',
+                          'Find the best doctors nearest to you',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             shadows: [
@@ -90,51 +89,51 @@ class LoginWidget extends StatelessWidget {
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Create Your Account',
-                          style: TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.bold),
-                          // textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                         ),
                         Divider(
                           color: Colors.black,
                           height: 20,
                           thickness: 2,
+                          // These params are used to shrink that divider based on screenWidth
+                          indent: MediaQuery.of(context).size.width * 0.2,
+                          endIndent: MediaQuery.of(context).size.width * 0.2,
                         ),
-                        Text(
-                          'Enter Mobile Number',
-                          // textAlign: TextAlign.start,
+
+                        // Align widget for positioning the labels to left most side of screen
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Enter Mobile Number',
+                          ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.black)),
+                        TextContainer(
                           child: TextField(
                             keyboardType: TextInputType.number,
                             style: TextStyle(fontSize: 20),
                             decoration: InputDecoration(
                                 prefixIcon: Padding(
-                                    padding: EdgeInsets.all(15),
+                                    padding: EdgeInsets.symmetric(vertical: 9.5, horizontal: 10),
                                     child: Text(
                                       '+91 |',
-                                      style: TextStyle(fontSize: 20),
+                                      style: TextStyle(fontSize: 18),
                                     )),
                                 fillColor: Colors.white,
                                 border: InputBorder.none),
                           ),
                         ),
-                        Text(
-                          'Create Password',
-                          // textAlign: TextAlign.start,
+
+                        // Align widget for positioning the labels to left most side of screen
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Create Password',
+                          ),
                         ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 5),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              border: Border.all(color: Colors.black)),
+                        TextContainer(
                           child: TextField(
                             obscureText: true,
                             style: TextStyle(fontSize: 20),
@@ -144,6 +143,7 @@ class LoginWidget extends StatelessWidget {
                                 border: InputBorder.none),
                           ),
                         ),
+                        // Use [MediaQuery] for [SizedBox] to make more responsive UI
                         SizedBox(
                           height: 20,
                         ),
@@ -156,12 +156,10 @@ class LoginWidget extends StatelessWidget {
                               ])),
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: Colors.transparent,
-                                  shadowColor: Colors.transparent),
+                                  primary: Colors.transparent, shadowColor: Colors.transparent),
                               onPressed: () {},
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 30, vertical: 20),
+                                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                                 child: Text(
                                   'Create',
                                   style: TextStyle(fontSize: 20),
@@ -175,6 +173,24 @@ class LoginWidget extends StatelessWidget {
               ],
             )),
       ),
+    );
+  }
+}
+
+/// TextContainer widget contains the decoration of box
+/// wrapping the [TextField] in entire application
+class TextContainer extends StatelessWidget {
+  final Widget child;
+
+  const TextContainer({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30), border: Border.all(color: Colors.black)),
+      child: child,
     );
   }
 }
