@@ -51,7 +51,7 @@ class LoginWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Text(
-                          'find the best doctors nearest to you',
+                          'Find the best doctors nearest to you',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             shadows: [
@@ -89,25 +89,25 @@ class LoginWidget extends StatelessWidget {
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Create Your Account',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                          // textAlign: TextAlign.center,
                         ),
                         Divider(
                           color: Colors.black,
                           height: 20,
                           thickness: 2,
+                          // These params are used to shrink that divider based on screenWidth
                           indent: MediaQuery.of(context).size.width * 0.2,
                           endIndent: MediaQuery.of(context).size.width * 0.2,
                         ),
+
+                        // Align widget for positioning the labels to left most side of screen
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Enter Mobile Number',
-                            // textAlign: TextAlign.start,
                           ),
                         ),
                         TextContainer(
@@ -125,11 +125,12 @@ class LoginWidget extends StatelessWidget {
                                 border: InputBorder.none),
                           ),
                         ),
+
+                        // Align widget for positioning the labels to left most side of screen
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Create Password',
-                            // textAlign: TextAlign.start,
                           ),
                         ),
                         TextContainer(
@@ -142,6 +143,7 @@ class LoginWidget extends StatelessWidget {
                                 border: InputBorder.none),
                           ),
                         ),
+                        // Use [MediaQuery] for [SizedBox] to make more responsive UI
                         SizedBox(
                           height: 20,
                         ),
@@ -175,6 +177,8 @@ class LoginWidget extends StatelessWidget {
   }
 }
 
+/// TextContainer widget contains the decoration of box
+/// wrapping the [TextField] in entire application
 class TextContainer extends StatelessWidget {
   final Widget child;
 
