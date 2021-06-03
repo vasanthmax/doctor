@@ -5,90 +5,81 @@ class LoginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-            constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height,
-                maxWidth: MediaQuery.of(context).size.width),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color(0xffFC2A2A),
-                Color(0xffFAAB4F),
-              ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(2),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: statusBarHeight, left: 20, right: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image(
-                              image: AssetImage('assets/Stethoscope.png'),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
-                                onSurface: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                              ),
-                              onPressed: () {},
-                              child: Text(
-                                'Login',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
+      body: Container(
+          constraints: BoxConstraints(
+              maxHeight: MediaQuery.of(context).size.height,
+              maxWidth: MediaQuery.of(context).size.width),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xffFC2A2A),
+              Color(0xffFAAB4F),
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: statusBarHeight, left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image(
+                      image: AssetImage('assets/Stethoscope.png'),
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.transparent,
+                        onSurface: Colors.transparent,
+                        shadowColor: Colors.transparent,
                       ),
-                      SizedBox(
-                        height: 30,
+                      onPressed: () {},
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.black),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40),
-                        child: Text(
-                          'Find the best doctors nearest to you',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            shadows: [
-                              Shadow(
-                                blurRadius: 10.0,
-                                color: Colors.black,
-                                offset: Offset(5.0, 5.0),
-                              ),
-                            ],
-                            color: Colors.white,
-                            fontSize: 25,
-                          ),
-                        ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Text(
+                  'Find the best doctors nearest to you',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    shadows: [
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black,
+                        offset: Offset(5.0, 5.0),
                       ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Image(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          image: AssetImage('assets/doctorloginimg.png'))
                     ],
+                    color: Colors.white,
+                    fontSize: 25,
                   ),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Image(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  image: AssetImage('assets/doctorloginimg.png')),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
                     ),
+                  ),
+                  child: SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
                           'Create Your Account',
@@ -169,10 +160,10 @@ class LoginWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
-              ],
-            )),
-      ),
+                ),
+              )
+            ],
+          )),
     );
   }
 }
