@@ -1,4 +1,5 @@
 import 'package:doctor/pages/login.dart';
+import 'package:doctor/pages/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginWidget(),
+      routes: {
+        SignupWidget.signupRoute: (_) => SignupWidget(),
+        LoginWidget.loginRoute: (_) => LoginWidget()
+      },
     );
   }
 }

@@ -1,8 +1,11 @@
-import 'package:doctor/pages/signup.dart';
 import 'package:flutter/material.dart';
 
-class LoginWidget extends StatelessWidget {
-  static const String loginRoute = '/';
+import 'login.dart';
+
+class SignupWidget extends StatelessWidget {
+  static const String signupRoute = '/signup';
+  const SignupWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).padding.top;
@@ -35,10 +38,10 @@ class LoginWidget extends StatelessWidget {
                         shadowColor: Colors.transparent,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, SignupWidget.signupRoute);
+                        Navigator.pushNamed(context, LoginWidget.loginRoute);
                       },
                       child: Text(
-                        'Signup',
+                        'Login',
                         style: TextStyle(color: Colors.black),
                       ),
                     )
@@ -91,7 +94,7 @@ class LoginWidget extends StatelessWidget {
                             top: 10,
                           ),
                           child: Text(
-                            'Welcome back',
+                            'Create your account',
                             style: TextStyle(
                                 fontSize: 30, fontWeight: FontWeight.bold),
                           ),
@@ -109,6 +112,21 @@ class LoginWidget extends StatelessWidget {
                         ),
 
                         // Align widget for positioning the labels to left most side of screen
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Username',
+                          ),
+                        ),
+                        TextContainer(
+                          child: TextField(
+                            keyboardType: TextInputType.number,
+                            style: TextStyle(fontSize: 20),
+                            decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                border: InputBorder.none),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -169,7 +187,7 @@ class LoginWidget extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 20),
                                 child: Text(
-                                  'Login',
+                                  'Create',
                                   style: TextStyle(fontSize: 20),
                                 ),
                               )),
@@ -181,28 +199,6 @@ class LoginWidget extends StatelessWidget {
               )
             ],
           )),
-    );
-  }
-}
-
-/// TextContainer widget contains the decoration of box
-/// wrapping the [TextField] in entire application
-class TextContainer extends StatelessWidget {
-  final Widget child;
-
-  const TextContainer({required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5, bottom: 20),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            border: Border.all(color: Colors.black)),
-        child: child,
-      ),
     );
   }
 }
