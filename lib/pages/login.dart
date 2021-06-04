@@ -1,3 +1,4 @@
+import 'package:doctor/pages/bottomnav.dart';
 import 'package:doctor/pages/signup.dart';
 import 'package:flutter/material.dart';
 
@@ -164,7 +165,10 @@ class LoginWidget extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.transparent,
                                   shadowColor: Colors.transparent),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, BottomNavWidget.navRoute);
+                              },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 20),
